@@ -78,11 +78,14 @@ WSGI_APPLICATION = 'webstack_portfolio_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6dml1tu4f7odi',
+        'USER': 'qluyacsnypikgh',
+        'PASSWORD': '37423ba942a61e97bb85438e437bc219b433876af51f6f9a177ceb67bc0eff5b',
+        'HOST': 'ec2-3-232-218-211.compute-1.amazonaws.com',  # Set to the host where your PostgreSQL server is running
+        'PORT': '5432',      # Default PostgreSQL port
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
