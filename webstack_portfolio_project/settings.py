@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django_heroku
 django_heroku.settings(locals())
+heroku config:set DISABLE_COLLECTSTATIC=1
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
