@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django_heroku
 django_heroku.settings(locals())
-heroku config:set DISABLE_COLLECTSTATIC=1
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
