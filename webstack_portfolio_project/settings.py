@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+import django_heroku
+django_heroku.settings(locals())
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_9clif==$l%i9t-4stjkq!1bq8fe1(4eme3%@u&vul5o5otlb*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['smartecommerce-f697a59ff430.herokuapp.com', 'www.smartecommerce-f697a59ff430.herokuapp.com']
 
 
 # Application definition
@@ -76,11 +81,14 @@ WSGI_APPLICATION = 'webstack_portfolio_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6dml1tu4f7odi',
+        'USER': 'qluyacsnypikgh',
+        'PASSWORD': '37423ba942a61e97bb85438e437bc219b433876af51f6f9a177ceb67bc0eff5b',
+        'HOST': 'ec2-3-232-218-211.compute-1.amazonaws.com',  # Set to the host where your PostgreSQL server is running
+        'PORT': '5432',      # Default PostgreSQL port
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -117,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
 
